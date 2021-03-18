@@ -9,22 +9,22 @@ class CatModel{
 
   static List<CatModel> list= [
     CatModel(
-      imgPath: 'cat1.png',
+      imgPath: 'assets/dental_icon.png',
       name: 'Dental',
       numOfDoctors: 26,
     ),
     CatModel(
-      imgPath: 'cat1.png',
+      imgPath: 'assets/heart_icon.png',
       name: 'Heart',
       numOfDoctors: 18,
     ),
     CatModel(
-      imgPath: 'cat1.png',
+      imgPath: 'assets/brain_icon.png',
       name: 'Brain',
       numOfDoctors: 32,
     ),
     CatModel(
-      imgPath: 'cat1.png',
+      imgPath: 'assets/bone_icon.png',
       name: 'Bone',
       numOfDoctors: 36,
     ),
