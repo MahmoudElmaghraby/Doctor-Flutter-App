@@ -1,6 +1,7 @@
 import 'package:doctor_flutter_app/core/contants.dart';
 import 'package:doctor_flutter_app/models/cat_model.dart';
 import 'package:doctor_flutter_app/models/doctors_model.dart';
+import 'package:doctor_flutter_app/pages/second_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatelessWidget {
@@ -161,6 +162,7 @@ class FirstPage extends StatelessWidget {
                         docModel.docSpecialization,
                         docModel.docRate,
                         docModel.distance,
+                        context,
                       );
                     },
                   ),
@@ -179,76 +181,86 @@ class FirstPage extends StatelessWidget {
     String specialization,
     double rate,
     double dist,
+    BuildContext context,
   ) {
-    return Card(
-      child: Row(
-        children: [
-          Image.asset(
-            // 'assets/doc_s1.png',
-            img,
-            height: 80,
-            width: 80,
-            fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => SecondPage(),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 10.0,
-              top: 16.0,
-              bottom: 16.0,
+        );
+      },
+      child: Card(
+        child: Row(
+          children: [
+            Image.asset(
+              // 'assets/doc_s1.png',
+              img,
+              height: 80,
+              width: 80,
+              fit: BoxFit.fill,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  //  'Dr. Fred Mask',
-                  name,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 10.0,
+                top: 16.0,
+                bottom: 16.0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    //  'Dr. Fred Mask',
+                    name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      //      'Heart surgen',
-                      specialization,
-                      style: TextStyle(
-                        fontSize: 16,
+                  SizedBox(height: 10.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        //      'Heart surgen',
+                        specialization,
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 30.0),
-                      child: Icon(
-                        Icons.star,
-                        color: AppColors.yellowColor,
-                        size: 14.0,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0),
+                        child: Icon(
+                          Icons.star,
+                          color: AppColors.yellowColor,
+                          size: 14.0,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '${rate}',
-                      style: TextStyle(fontSize: 10.0),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Icon(
-                        Icons.location_on_sharp,
-                        color: AppColors.yellowColor,
-                        size: 14.0,
+                      Text(
+                        '${rate}',
+                        style: TextStyle(fontSize: 10.0),
                       ),
-                    ),
-                    Text(
-                      '${dist} KM',
-                      style: TextStyle(fontSize: 10.0),
-                    ),
-                  ],
-                ),
-              ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Icon(
+                          Icons.location_on_sharp,
+                          color: AppColors.yellowColor,
+                          size: 14.0,
+                        ),
+                      ),
+                      Text(
+                        '${dist} KM',
+                        style: TextStyle(fontSize: 10.0),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
