@@ -1,9 +1,15 @@
-import 'package:doctor_flutter_app/core/contants.dart';
+import 'package:doctor_flutter_app/core/constants.dart';
+import 'package:doctor_flutter_app/models/doctors_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class SecondPage extends StatelessWidget {
+
+  final DoctorsModel doctorsModel;
+
+  const SecondPage({Key key,@required this.doctorsModel}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +37,7 @@ class SecondPage extends StatelessWidget {
               children: [
                 SizedBox(width: 15),
                 Image.asset(
-                  'assets/doc_s1.png',
+                  doctorsModel.docImg,
                   height: 100,
                   width: 100,
                   fit: BoxFit.fill,
@@ -41,7 +47,7 @@ class SecondPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Dr. Fred Mask',
+                      doctorsModel.docName,
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.white,
@@ -49,7 +55,7 @@ class SecondPage extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Heart surgen',
+                      doctorsModel.docSpecialization,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white54,
@@ -61,7 +67,10 @@ class SecondPage extends StatelessWidget {
                         Icons.star,
                         color: Colors.amber,
                       ),
-                      onRatingUpdate: (_) {},
+                      onRatingUpdate: null,
+                      initialRating: doctorsModel.docRate,
+                      allowHalfRating: true,
+                      ignoreGestures: true,
                     ),
                   ],
                 ),

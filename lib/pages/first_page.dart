@@ -1,4 +1,4 @@
-import 'package:doctor_flutter_app/core/contants.dart';
+import 'package:doctor_flutter_app/core/constants.dart';
 import 'package:doctor_flutter_app/models/cat_model.dart';
 import 'package:doctor_flutter_app/models/doctors_model.dart';
 import 'package:doctor_flutter_app/pages/second_page.dart';
@@ -119,7 +119,7 @@ class FirstPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       CatModel catModel = catList[index];
                       return _buildCatWidget(
-                        'assets/heart_icon.png',
+                        catModel.imgPath,
                         catModel.name,
                         catModel.numOfDoctors,
                       );
@@ -163,6 +163,7 @@ class FirstPage extends StatelessWidget {
                         docModel.docRate,
                         docModel.distance,
                         context,
+                        docModel,
                       );
                     },
                   ),
@@ -182,12 +183,15 @@ class FirstPage extends StatelessWidget {
     double rate,
     double dist,
     BuildContext context,
+    DoctorsModel docModel,
   ) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (_) => SecondPage(),
+            builder: (_) => SecondPage(
+              doctorsModel: docModel,
+            ),
           ),
         );
       },
@@ -195,7 +199,6 @@ class FirstPage extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              // 'assets/doc_s1.png',
               img,
               height: 80,
               width: 80,
@@ -211,7 +214,6 @@ class FirstPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    //  'Dr. Fred Mask',
                     name,
                     style: TextStyle(
                       fontSize: 20,
@@ -224,7 +226,6 @@ class FirstPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        //      'Heart surgen',
                         specialization,
                         style: TextStyle(
                           fontSize: 16,

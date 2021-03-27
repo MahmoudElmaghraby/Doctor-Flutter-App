@@ -27,14 +27,14 @@ class DoctorsModel {
       docImg: 'assets/doc_s2.png',
       docName: 'Dr. Stella Kane ',
       docSpecialization: 'Bone Specialist',
-      docRate: 4.7,
+      docRate: 4.5,
       distance: 3.1,
     ),
     DoctorsModel(
       docImg: 'assets/doc_s3.png',
       docName: 'Dr. Zac Wolff',
       docSpecialization: 'Eyes Specialist',
-      docRate: 4.5,
+      docRate: 2.0,
       distance: 4.6,
     ),
   ];
